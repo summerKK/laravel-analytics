@@ -39,9 +39,9 @@ jobs:
     - name: Install Composer dependencies
       env:
         PHP_VERSION: ${{ matrix.php-versions }}
-      run: 
-        - composer config --no-plugins allow-plugins.kylekatarnls/update-helper true 
-        - composer update -n --prefer-dist
+      run: |
+        composer config --no-plugins allow-plugins.kylekatarnls/update-helper true 
+        composer update -n --prefer-dist
 
     - name: Test with PHPUnit
       run: vendor/bin/phpunit --configuration ./phpunit.xml
